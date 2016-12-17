@@ -29,22 +29,34 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
         return MenuDataService.getAllCategories();
       }]
     }
-  });
+  })
 
-  // .state('itemDetail', {
-  //   url: '/item-detail/{itemId}',
-  //   templateUrl: 'src/menuapp/templates/items.template.html',
-  //   controller: 'ItemsController as items',
-  //   resolve: {
-  //     item: ['$stateParams', 'ShoppingListService',
-  //           function ($stateParams, ShoppingListService) {
-  //             return ShoppingListService.getItems()
-  //               .then(function (items) {
-  //                 return items[$stateParams.itemId];
-  //               });
-  //           }]
-  //   }
-  // });
+  // items page
+  .state('items', {
+    url: '/items',
+    templateUrl: 'src/menuapp/templates/items.template.html',
+    controller: 'ItemsController as items',
+    resolve: {
+      items: ['MenuDataService', function (MenuDataService) {
+        return MenuDataService.getItemsForCategory("L");
+      }]
+    }
+  })
+
+  .state('itemDetail', {
+    url: '/item-detail/{itemId}',
+    templateUrl: 'src/menuapp/templates/items.template.html',
+    controller: 'ItemsController as items',
+    resolve: {
+      item: ['$stateParams', 'MenuDataService',
+            function ($stateParams, MenuDataService) {
+              return MenuDataService.getItems()
+                .then(function (items) {
+                  return items[$stateParams.itemId];
+                });
+            }]
+    }
+  });
 }
 
 })();

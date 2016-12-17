@@ -20,12 +20,12 @@ function MenuDataService($q, $http, ApiBasePath) {
       if(array1.length==0){
         return 0;
       }
-      return (array1[index1].indexOf(element1.toLowerCase()) === element1.length);
+      return (array1[index1].indexOf(this.name.toLowerCase()) === 0);
     }
     function isNewSubstring(element,index,array){
-      var doesContain = (categoriesThusFar.filter(contains).length>0);
+      var doesContain = (categoriesThusFar.filter(contains, element).length>0);
       if(!doesContain){
-        categoriesThusFar.push(element.short_name);
+        categoriesThusFar.push(element.name);
       }
 
       return doesContain;
@@ -42,6 +42,24 @@ function MenuDataService($q, $http, ApiBasePath) {
       return deferred.promise;
     });
   };
+
+  service.getItemsForCategory = function (categoryShortName) {
+    var categoriesThusFar =[];
+    function isInCategory(element,index,array){
+      return (array[index].short_name.indexOf(categoryShortName)!==-1);
+    }
+    var deferred = $q.defer();
+
+    return $http({
+      method: "GET",
+      url: (ApiBasePath + "/menu_items.json")
+    }).then(function (response) {
+      var items = response.data.menu_items.filter(isInCategory);
+      deferred.resolve(items);
+      return deferred.promise;
+    });
+  };
+
 }
 
 })();

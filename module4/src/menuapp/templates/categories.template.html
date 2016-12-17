@@ -1,8 +1,7 @@
-<a ui-sref="home">Welcome again from categorieszzzz</a>
 <ul>
   <li ng-repeat="category in categories.categories">
       <!-- ui-sref="itemDetail({itemId: $index})"> -->
-    {{ category }}
+    <a ui-sref="items">Get a list of items for {{ category }}</a>
   </li>
 </ul>
-<a ui-sref="home">Welcome again from categorieszzzz222</a>
+<a ui-sref="home">Go back home</a>
