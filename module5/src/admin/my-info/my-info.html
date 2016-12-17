@@ -9,3 +9,15 @@
       Phone: {{ myInfo.user.phone }} <br>
       Favorite dish shortname: {{ myInfo.user.favShortName }}
     </div>
+  <div class="row">
+    <div class="col-sm-5">
+      <div class="menu-item-photo">
+        <div>{{myInfo.user.favShortName}}</div>
+        <img class="img-responsive" width="250" height="150" ng-src="{{myInfo.basePath}}/images/{{myInfo.user.favShortName}}.jpg" alt="{{zzzvmenuItemDotname}}">
+      </div>
+    </div>
+    <div class="menu-item-description col-sm-7">
+      <h3 class="menu-item-title">{{myInfo.user.menuItem.name}}</h3>
+      <p class="menu-item-details">{{myInfo.user.menuItem.description}}</p>
+    </div>
+  </div>

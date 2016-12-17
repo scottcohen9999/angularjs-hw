@@ -3,11 +3,12 @@
 angular.module('admin')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['AdminService'];
-function MyInfoController(AdminService) {
+MyInfoController.$inject = ['AdminService','ApiPath'];
+function MyInfoController(AdminService,ApiPath) {
   var myInfo = this;
 
   myInfo.user = AdminService.getRegistrationData();
+  myInfo.basePath = ApiPath;
 }
 
 })();
