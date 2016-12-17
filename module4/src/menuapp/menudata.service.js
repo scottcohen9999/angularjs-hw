@@ -46,7 +46,13 @@ function MenuDataService($q, $http, ApiBasePath) {
   service.getItemsForCategory = function (categoryShortName) {
     var categoriesThusFar =[];
     function isInCategory(element,index,array){
-      return (array[index].short_name.indexOf(categoryShortName)!==-1);
+      var lenPrefixToDigits = array[index].short_name.search(/[0-9]/);
+      var prefixToDigits=array[index].short_name.substr(0,lenPrefixToDigits);
+      if(!categoryShortName.endsWith(prefixToDigits)){
+        return false;
+      }
+      return (prefixToDigits.indexOf(categoryShortName)===0);
+      // return (array[index].short_name.indexOf(categoryShortName)!==-1);
     }
     var deferred = $q.defer();
 
