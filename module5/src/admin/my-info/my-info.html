@@ -1,7 +1,7 @@
   <!-- <div ng-controller="MyInfoController as myInfo"> -->
     <h1>My Info</h1>
 
-    <!-- <div id="info" ng-if="myInfo.completed"> -->
+  <div id="info" ng-if="myInfo.completed">
     <div id="my-info">
       Firstname: {{ myInfo.user.firstname}} <br>
       Lastname: {{ myInfo.user.lastname}} <br>
@@ -9,15 +9,19 @@
       Phone: {{ myInfo.user.phone }} <br>
       Favorite dish shortname: {{ myInfo.user.favShortName }}
     </div>
-  <div class="row">
-    <div class="col-sm-5">
-      <div class="menu-item-photo">
-        <div>{{myInfo.user.favShortName}}</div>
-        <img class="img-responsive" width="250" height="150" ng-src="{{myInfo.basePath}}/images/{{myInfo.user.favShortName}}.jpg" alt="{{zzzvmenuItemDotname}}">
+    <div class="row">
+      <div class="col-sm-5">
+        <div class="menu-item-photo">
+          <div>{{myInfo.user.favShortName}}</div>
+          <img class="img-responsive" width="250" height="150" ng-src="{{myInfo.basePath}}/images/{{myInfo.user.favShortName}}.jpg" alt="{{zzzvmenuItemDotname}}">
+        </div>
+      </div>
+      <div class="menu-item-description col-sm-7">
+        <h3 class="menu-item-title">{{myInfo.user.menuItem.name}}</h3>
+        <p class="menu-item-details">{{myInfo.user.menuItem.description}}</p>
       </div>
     </div>
-    <div class="menu-item-description col-sm-7">
-      <h3 class="menu-item-title">{{myInfo.user.menuItem.name}}</h3>
-      <p class="menu-item-details">{{myInfo.user.menuItem.description}}</p>
-    </div>
+  </div>
+  <div id="info" ng-if="!myInfo.completed">
+    Not signed up yet!<a ui-sref="admin.registration">Sign up Now!</a>
   </div>

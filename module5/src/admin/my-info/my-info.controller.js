@@ -9,6 +9,7 @@ function MyInfoController(AdminService,ApiPath) {
 
   myInfo.user = AdminService.getRegistrationData();
   myInfo.basePath = ApiPath;
+  myInfo.completed = myInfo.user ? true : false;
 }
 
 })();
