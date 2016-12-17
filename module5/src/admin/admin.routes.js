@@ -29,13 +29,13 @@ function routeConfig ($stateProvider) {
       //     return MenuService.getCategories();
       //   }]
       // }
-    // })
-    // .state('public.menuitems', {
-    //   url: '/menu/{category}',
-    //   templateUrl: 'src/public/menu-items/menu-items.html',
-    //   controller: 'MenuItemsController',
-    //   controllerAs: 'menuItemsCtrl',
-    //   resolve: {
+    })
+    .state('admin.myInfo', {
+      url: '/menu/{category}',
+      templateUrl: 'src/admin/my-info/my-info.html',
+      controller: 'MyInfoController',
+      controllerAs: 'myInfo'
+      // resolve: {
     //     menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
     //       return MenuService.getMenuItems($stateParams.category);
     //     }]
