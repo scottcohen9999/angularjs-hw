@@ -20,12 +20,12 @@ function MenuDataService($q, $http, ApiBasePath) {
       if(array1.length==0){
         return 0;
       }
-      return (array1[index1].indexOf(this.name.toLowerCase()) === 0);
+      return (array1[index1].short_name.indexOf(this.short_name.toLowerCase()) === 0);
     }
     function isNewSubstring(element,index,array){
       var doesContain = (categoriesThusFar.filter(contains, element).length>0);
       if(!doesContain){
-        categoriesThusFar.push(element.name);
+        categoriesThusFar.push(element);
       }
 
       return doesContain;

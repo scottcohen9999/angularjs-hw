@@ -2,6 +2,6 @@
 <span>Categories</span>
 <ul>
   <li ng-repeat="category in categories.categories">
-    <a ui-sref="items({categoryShortName: &quot;{{category}}&quot; })">Get a list of items for {{ category }}</a>
+    <a ui-sref="items({categoryShortName: &quot;{{category.short_name}}&quot; })">Get a list of items for {{ category.name }}</a>
   </li>
 </ul>
