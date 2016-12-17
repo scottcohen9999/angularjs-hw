@@ -3,14 +3,23 @@
 angular.module('admin')
 .controller('RegistrationController', RegistrationController);
 
-RegistrationController.$inject = ['AdminService'];
-function RegistrationController(AdminService) {
+RegistrationController.$inject = ['AdminService', '$timeout'];
+function RegistrationController(AdminService, $timeout) {
   var reg = this;
 
   reg.submit = function (user) {
-  	AdminService.saveRegistrationData(user);
-
-    reg.completed = true;
+    AdminService.testShortName(user.favShortName).then(function (response) {
+	  	AdminService.saveRegistrationData(user);
+	  	reg.noSuchShortName = false;
+    	reg.completed = true;
+      	console.log('saved data true response');
+    },
+    function (response) {
+		reg.noSuchShortName = true;
+		reg.completed = false;
+      	console.log('did NOT save data;');
+    });
+    $timeout(function(){},5000);
   };
 }
 

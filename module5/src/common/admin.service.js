@@ -5,8 +5,8 @@ angular.module('common')
 .service('AdminService', AdminService);
 
 
-AdminService.$inject = ['$http', 'ApiPath'];
-function AdminService($http, ApiPath) {
+AdminService.$inject = ['$http', 'ApiPath','$timeout'];
+function AdminService($http, ApiPath, $timeout) {
   var service = this;
 
   service.saveRegistrationData = function (user) {
@@ -25,6 +25,11 @@ function AdminService($http, ApiPath) {
     // });
   };
 
+
+  service.testShortName = function (shortName) {
+    var promise= $http.get(ApiPath + '/menu_items/' + shortName + '.json');
+    return promise;
+  };
 
   service.getShortName = function (shortName) {
     return $http.get(ApiPath + '/menu_items/' + shortName + '.json', config).then(function (response) {

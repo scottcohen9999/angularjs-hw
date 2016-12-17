@@ -50,6 +50,10 @@
           </span>
           <br>
 
+       <input type="text" name="favShortName" placeholder="Favorite dish shortname"
+          ng-model="reg.user.favShortName">
+          <br>
+
         <button
           ng-disabled="regForm.$invalid"
           ng-click="reg.submit(reg.user)">Submit</button>
@@ -59,11 +63,9 @@
           </div>
       </form>
     </fieldset>
-
+    <div id="info" ng-if="reg.noSuchShortName">
+      No such menu number exists.
+    </div>
     <div id="info" ng-if="reg.completed">
       Your information has been saved.<br>
-      Firstname: {{ reg.user.firstname}} <br>
-      Lastname: {{ reg.user.lastname}} <br>
-      Email: {{ reg.user.email}} <br>
-      Phone: {{ reg.user.phone }}
-    </div>
+      </div>

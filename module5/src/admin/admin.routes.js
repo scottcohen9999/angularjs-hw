@@ -25,13 +25,13 @@ function routeConfig ($stateProvider) {
       controller: 'RegistrationController',
       controllerAs: 'reg'
       // resolve: {
-      //   menuCategories: ['MenuService', function (MenuService) {
-      //     return MenuService.getCategories();
+      //   noSuchShortName: ['AdminService', function (AdminService) {
+      //     return AdminService.testShortName('A1');
       //   }]
       // }
     })
     .state('admin.myInfo', {
-      url: '/menu/{category}',
+      // url: '/menu/{category}',
       templateUrl: 'src/admin/my-info/my-info.html',
       controller: 'MyInfoController',
       controllerAs: 'myInfo'
