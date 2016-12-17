@@ -8,6 +8,7 @@ function RegistrationController(AdminService, $timeout) {
   var reg = this;
 
   reg.submit = function (user) {
+  	user.favShortName=user.favShortName.toUpperCase();
     AdminService.getMenuItem(user.favShortName).then(function (response) {
 	  	user.menuItem = response.data;
 	  	AdminService.saveRegistrationData(user);
