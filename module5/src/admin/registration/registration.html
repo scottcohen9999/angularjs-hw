@@ -52,7 +52,7 @@
 
         <button
           ng-disabled="regForm.$invalid"
-          ng-click="reg.submit()">Submit</button>
+          ng-click="reg.submit(reg.user)">Submit</button>
 
           <div style="margin-top: 10px;">
             Form valid? {{ regForm.$valid }}
@@ -61,6 +61,7 @@
     </fieldset>
 
     <div id="info" ng-if="reg.completed">
+      Your information has been saved.<br>
       Firstname: {{ reg.user.firstname}} <br>
       Lastname: {{ reg.user.lastname}} <br>
       Email: {{ reg.user.email}} <br>

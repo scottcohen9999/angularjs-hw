@@ -9,15 +9,20 @@ AdminService.$inject = ['$http', 'ApiPath'];
 function AdminService($http, ApiPath) {
   var service = this;
 
-  service.getRegistrationData = function () {
-    var config = {};
-    if (shortName) {
-      config.params = {'shortName': shortName};
-    }
+  service.saveRegistrationData = function (user) {
+    service.user = user;
+  };
 
-    return $http.get(ApiPath + '/categories.json').then(function (response) {
-      return response.data;
-    });
+  service.getRegistrationData = function () {
+    return service.user;
+    // var config = {};
+    // if (shortName) {
+    //   config.params = {'shortName': shortName};
+    // }
+
+    // return $http.get(ApiPath + '/categories.json').then(function (response) {
+    //   return response.data;
+    // });
   };
 
 

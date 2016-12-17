@@ -3,12 +3,11 @@
 angular.module('admin')
 .controller('MyInfoController', MyInfoController);
 
-function MyInfoController() {
+MyInfoController.$inject = ['AdminService'];
+function MyInfoController(AdminService) {
   var myInfo = this;
 
-  myInfo.submit = function () {
-    myInfo.completed = true;
-  };
+  myInfo.user = AdminService.getRegistrationData();
 }
 
 })();

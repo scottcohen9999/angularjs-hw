@@ -3,10 +3,13 @@
 angular.module('admin')
 .controller('RegistrationController', RegistrationController);
 
-function RegistrationController() {
+RegistrationController.$inject = ['AdminService'];
+function RegistrationController(AdminService) {
   var reg = this;
 
-  reg.submit = function () {
+  reg.submit = function (user) {
+  	AdminService.saveRegistrationData(user);
+
     reg.completed = true;
   };
 }
