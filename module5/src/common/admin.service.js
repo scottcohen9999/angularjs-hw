@@ -15,28 +15,11 @@ function AdminService($http, ApiPath, $timeout) {
 
   service.getRegistrationData = function () {
     return service.user;
-    // var config = {};
-    // if (shortName) {
-    //   config.params = {'shortName': shortName};
-    // }
-
-    // return $http.get(ApiPath + '/categories.json').then(function (response) {
-    //   return response.data;
-    // });
   };
 
-
-  service.testShortName = function (shortName) {
-    var promise= $http.get(ApiPath + '/menu_items/' + shortName + '.json');
-    return promise;
+  service.getMenuItem = function (shortName) {
+    return $http.get(ApiPath + '/menu_items/'+ shortName+ '.json');
   };
-
-  service.getShortName = function (shortName) {
-    return $http.get(ApiPath + '/menu_items/' + shortName + '.json', config).then(function (response) {
-      return response.data;
-    });
-  };
-
 }
 
 

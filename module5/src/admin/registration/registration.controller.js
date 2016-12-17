@@ -8,8 +8,10 @@ function RegistrationController(AdminService, $timeout) {
   var reg = this;
 
   reg.submit = function (user) {
-    AdminService.testShortName(user.favShortName).then(function (response) {
+    AdminService.getMenuItem(user.favShortName).then(function (response) {
+	  	user.menuItem = response.data;
 	  	AdminService.saveRegistrationData(user);
+
 	  	reg.noSuchShortName = false;
     	reg.completed = true;
       	console.log('saved data true response');

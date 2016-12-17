@@ -15,31 +15,16 @@ function routeConfig ($stateProvider) {
       abstract: true,
       templateUrl: 'src/admin/admin.html'
     })
-    // .state('admin.home', {
-    //   url: '/',
-    //   templateUrl: 'src/public/home/home.html'
-    // })
     .state('admin.registration', {
       url: '/admin',
       templateUrl: 'src/admin/registration/registration.html',
       controller: 'RegistrationController',
       controllerAs: 'reg'
-      // resolve: {
-      //   noSuchShortName: ['AdminService', function (AdminService) {
-      //     return AdminService.testShortName('A1');
-      //   }]
-      // }
     })
     .state('admin.myInfo', {
-      // url: '/menu/{category}',
       templateUrl: 'src/admin/my-info/my-info.html',
       controller: 'MyInfoController',
       controllerAs: 'myInfo'
-      // resolve: {
-    //     menuItems: ['$stateParams','MenuService', function ($stateParams, MenuService) {
-    //       return MenuService.getMenuItems($stateParams.category);
-    //     }]
-    //   }
     });
 }
 })();
