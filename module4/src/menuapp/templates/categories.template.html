@@ -1,7 +1,7 @@
+<a ui-sref="home">Home</a> &lt;
+<span>Categories</span>
 <ul>
   <li ng-repeat="category in categories.categories">
-      <!-- ui-sref="itemDetail({itemId: $index})"> -->
     <a ui-sref="items({categoryShortName: &quot;{{category}}&quot; })">Get a list of items for {{ category }}</a>
   </li>
 </ul>
-<a ui-sref="home">Go back home</a>
